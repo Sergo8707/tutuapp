@@ -5,5 +5,16 @@
   <%= @railway_station.title %>
 </p>
 
-<%= link_to 'Edit', edit_railway_station_path(@railway_station) %> |
-<%= link_to 'Back', railway_stations_path %>
+<% if @railway_station.routes.empty? %>
+    <p>Станция не входит не в один маршрут</p>
+<% else %>
+    <p>Станция входит в следующие маршруты:</p>
+    <ul>
+      <% @railway_station.routes.each do |route| %>
+          <li><%= route.name %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= link_to 'Изменить', edit_railway_station_path(@railway_station) %> |
+<%= link_to 'Назад', railway_stations_path %>
