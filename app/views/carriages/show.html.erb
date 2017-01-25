@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Тип вагона:</strong>
+  <%= @carriage.carriage_type %>
+</p>
+<p>
+
+  <%= link_to 'Изменить', edit_carriage_path(@carriage) %> |
+  <%= link_to 'Назад', carriages_path %>
