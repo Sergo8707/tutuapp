@@ -1,5 +1,5 @@
 <%= form_for (@carriage) do |f| %>
-    <%= render 'common/errors', resourse: @carriage %>
+    <%= render 'common/errors', resource: @carriage %>
 
     <div class="field">
       <%= f.label :train, 'Выберите поезд:' %>
@@ -13,7 +13,7 @@
 
     <div class="field">
       <%= f.label :carriage_type, 'Тип вагона:' %>
-      <%= f.text_field :carriage_type %>
+      <%= f.select :carriage_type, Carriage::TYPES %>
     </div>
 
     <div class="field">

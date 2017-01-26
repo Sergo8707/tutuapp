@@ -1,23 +1,7 @@
 <ul>
-  <li>
-    <h4>Купейные вагоны</h4>
-    <% if carriages.cupe.empty? %>
-        В составе поезда нет купейных вагонов
-    <% else %>
-        <strong>Кол-во вагонов:</strong> <%= carriages.cupe.count %><br>
-        <strong>Верхние места:</strong> <%= carriages.cupe.total_top %><br>
-        <strong>Нижние места:</strong> <%= carriages.cupe.total_bottom %>
-    <% end %>
-  </li>
-
-  <li>
-    <h4>Плацкартные вагоны</h4>
-    <% if carriages.platc.empty? %>
-        В составе поезда нет плацкартных вагонов
-    <% else %>
-        <strong>Кол-во вагонов:</strong> <%= carriages.platc.count %><br>
-        <strong>Верхние места:</strong> <%= carriages.platc.total_top %><br>
-        <strong>Нижние места:</strong> <%= carriages.platc.total_bottom %>
-    <% end %>
-  </li>
+  <% @train.carriages(@train).each do |carriage| %>
+      <li>
+        <%= link_to "Вагон № #{carriage.number}", carriage_path(carriage) %>
+      </li>
+  <% end %>
 </ul>

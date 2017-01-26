@@ -1,10 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Поезд № </strong>
+  <%= @carriage.train.present? ? @carriage.train.number : 'Поезд не указан' %>
+</p>
+
+<p>
+  <strong>Номер вагона:</strong>
+  <%= @carriage.number %>
+</p>
+
+<p>
   <strong>Тип вагона:</strong>
   <%= @carriage.carriage_type %>
 </p>
 <p>
 
-  <%= link_to 'Изменить', edit_carriage_path(@carriage) %> |
-  <%= link_to 'Назад', carriages_path %>
+<p>
+  <strong>Количество мест:</strong></br>
+  Верхних: <%= @carriage.top_places %></br>
+  Нижних: <%= @carriage.bottom_places %></br>
+</p>
+
+<%= link_to 'Изменить', edit_carriage_path(@carriage) %> |
+<%= link_to 'Назад', carriages_path %>
