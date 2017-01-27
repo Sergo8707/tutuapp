@@ -3,6 +3,6 @@
   <td><%= carriage.number %></td>
   <td><%= link_to 'Показать', carriage %></td>
   <td><%= link_to 'Изменить', edit_carriage_path(carriage) %></td>
-  <td><%= link_to 'Удалить', carriage, method: :delete, data:
+  <td><%= link_to 'Удалить', carriage, class: 'btn btn-danger', method: :delete, data:
       {confirm: 'Вы уверены?'} %></td>
 </tr>

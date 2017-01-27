@@ -2,5 +2,5 @@
   <td><%= route.name %></td>
   <td><%= link_to 'Показать', route %></td>
   <td><%= link_to 'Изменить', edit_route_path(route) %></td>
-  <td><%= link_to 'Удалить', route, method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+  <td><%= link_to 'Удалить', route, class: 'btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
 </tr>
