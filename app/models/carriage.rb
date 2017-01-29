@@ -7,6 +7,14 @@ class Carriage < ApplicationRecord
 
   TYPES = {platc: 'Плацкартный', cupe: 'Купейный'}.freeze
 
+  scope :cupe, -> { where(carriage_type: 'Купейный') }
+  scope :platc, -> { where(carriage_type: 'Плацкартный') }
+
+  def self.total(arg)
+    sum(arg)
+  end
+
+
   private
 
   def set_number
