@@ -1,6 +1,6 @@
 <%= form_for(@railway_station) do |f| %>
     <%= render 'common/errors', resource: @railway_station %>
-    <div class="field">
+    <div class="field text_input">
       <%= f.label :title %>
       <%= f.text_field :title %>
     </div>

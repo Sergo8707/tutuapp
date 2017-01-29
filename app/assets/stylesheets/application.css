@@ -13,6 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+.backgroundImageCVR{
+    position:relative;
+    padding:15px;
+}
+.background-image{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background:url(https://s-media-cache-ak0.pinimg.com/originals/7a/29/ab/7a29ab9e4d6e4827d0de6c6a49896394.jpg);
+    background-size:cover;
+    z-index:1;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+.content{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    margin-bottom: 50px; /* Отступ снизу */
+}
+
+.text_input {
+    color: #000000;
+}
+
+
 .list {
     list-style-type: none;
 }
