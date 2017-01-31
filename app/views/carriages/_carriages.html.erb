@@ -1,0 +1,88 @@
+<table class="table bg-info text_input">
+  <thead>
+  <tr>
+    <th>Вагон №</th>
+    <th>Тип</th>
+    <th>Кол-во мест: верхних</th>
+    <th>Кол-во мест: нижних</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% carriages.each do |carriage| %>
+      <tr>
+        <th scope="row">
+          <%= carriage.number %>
+        </th>
+        <td>
+          <%= carriage.carriage_type %>
+        </td>
+        <td>
+          <%= carriage.top_places %>
+        </td>
+        <td>
+          <%= carriage.bottom_places %>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+  <tr>
+    <th>Всего плацкартных вагонов</th>
+    <th>Кол-во мест: верхних</th>
+    <th>Кол-во мест: нижних</th>
+  </tr>
+  <tbody>
+  <tr>
+    <th scope="row">
+      <%= carriages.platc.count %>
+    </th>
+    <td>
+      <%= carriages.platc.total(:top_places) %>
+    </td>
+    <td>
+      <%= carriages.platc.total(:bottom_places) %>
+    </td>
+  </tr>
+  </tbody>
+  </tr>
+  </tbody>
+  <tr>
+    <th>Всего купейных вагонов</th>
+    <th>Кол-во мест: верхних</th>
+    <th>Кол-во мест: нижних</th>
+  </tr>
+  <tbody>
+  <tr>
+    <th scope="row">
+      <%= carriages.cupe.count %>
+    </th>
+    <td>
+      <%= carriages.cupe.total(:top_places) %>
+    </td>
+    <td>
+      <%= carriages.cupe.total(:bottom_places) %>
+    </td>
+  </tr>
+  </tbody>
+  </tr>
+  </tbody>
+  <tr>
+    <th>Всего вагонов</th>
+    <th>Всего верхних мест</th>
+    <th>Всего нижних мест</th>
+  </tr>
+  <tbody>
+  <tr>
+    <th scope="row">
+      <%= carriages.count %>
+    </th>
+    <td>
+      <%= carriages.total(:top_places) %>
+    </td>
+    <td>
+      <%= carriages.total(:bottom_places) %>
+    </td>
+  </tr>
+  </tbody>
+  </tr>
+  </tbody>
+</table>

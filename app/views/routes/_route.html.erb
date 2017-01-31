@@ -1,6 +1,6 @@
 <tr>
   <td><%= route.name %></td>
-  <td><%= link_to 'Показать', route %></td>
-  <td><%= link_to 'Изменить', edit_route_path(route) %></td>
-  <td><%= link_to 'Удалить', route, method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+  <td><%= link_to 'Показать', route, class: 'btn-sm btn btn-info' %></td>
+  <td><%= link_to 'Изменить', edit_route_path(route), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to 'Удалить', route, class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
 </tr>

@@ -14,35 +14,40 @@
  *= require_self
  */
 
-a {
-    text-decoration: none;
+.backgroundImageCVR{
+    position:relative;
+    padding:15px;
+}
+.background-image{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background:url(https://s-media-cache-ak0.pinimg.com/originals/7a/29/ab/7a29ab9e4d6e4827d0de6c6a49896394.jpg);
+    background-size:cover;
+    z-index:1;
+    -webkit-filter: blur(10px);
+    -moz-filter: blur(10px);
+    -o-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+.content{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    margin-bottom: 50px; /* Отступ снизу */
 }
 
-.button {
-    background-color: #4CAF50;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.text_input {
+    color: #000000;
 }
 
-.button a {
-    color: #eeeeee;
-}
 
-.header {
-    width: 100%;
-    background: #f3f3f3;
-    text-align: center;
-    float: left;
-    position: relative;
-    margin-bottom: 40px;
+.list {
+    list-style-type: none;
 }
-
 .footer {
     position: fixed;
     left: 0;

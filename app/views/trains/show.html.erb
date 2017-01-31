@@ -20,6 +20,18 @@
       Не указано
   <% end %>
 </p>
+<div class="row">
+  <div class="col-md-8">
+    <p>
+      <% if @train.carriages.empty? %>
+          У поезда нет вагонов
+      <% else %>
+          <%= render 'carriages/carriages', carriages: @train.carriages %>
+      <% end %>
+    </p>
+  </div>
+</div>
 
-<%= link_to 'Изменить', edit_train_path(@train) %> |
-<%= link_to 'Назад', trains_path %>
+
+<%= link_to 'Изменить', edit_train_path(@train), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', trains_path, class: 'btn-sm btn-default' %>
