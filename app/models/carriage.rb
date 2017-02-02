@@ -1,26 +1,34 @@
 class Carriage < ApplicationRecord
+
   belongs_to :train
 
-  validates :number, :carriage_type, :bottom_places, :top_places, presence: true
-  validates :bottom_places, :top_places, inclusion: {in: 1..100}
-  validates :number, inclusion: {in: '1'..'100'}
+  validates :number, uniqueness: { scope: :train_id }, if: :train?
 
   before_validation :set_number, on: :create
 
-  TYPES = {platc: 'Плацкартный', cupe: 'Купейный'}.freeze
-  
-  TYPES.values.each do |carriage_type|
-    scope carriage_type, -> { where(carriage_type: 'carriage_type') }
+  scope :ordered, -> (order) { order(number: order ? 'asc' : 'desc') }
+
+  TYPES = %w(CupeCarriage PlatcCarriage SeatsCarriage UpholsteredCarriage).freeze
+  SEATS_TYPES = [].freeze
+
+
+  def has_seats?(seats_type)
+    self.class::SEATS_TYPES.include?(seats_type)
   end
 
-  def self.total(arg)
-    sum(arg)
+  def calculate_total_seats
+    0
   end
 
+  def train?
+    self.train.present?
+  end
 
   private
 
   def set_number
-    self.number = (train.carriages.maximum('number') || 0).next
+    return unless train? && self.number.nil?
+
+    self.number = train.carriages.size + 1
   end
 end

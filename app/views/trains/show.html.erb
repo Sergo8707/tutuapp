@@ -5,12 +5,8 @@
   <%= @train.number %>
 </p>
 <p>
-  <strong>На станции:</strong>
-  <% if @train.current_station.present? %>
-      <%= @train.current_station.title %>
-  <% else %>
-      Не указано
-  <% end %>
+  <strong>Текущая станция:</strong>
+  <%= @train.current_station.present? ? @train.current_station.name : 'Станция не назначена' %>
 </p>
 <p>
   <strong>На маршруте:</strong>
@@ -26,11 +22,24 @@
       <% if @train.carriages.empty? %>
           У поезда нет вагонов
       <% else %>
-          <%= render 'carriages/carriages', carriages: @train.carriages %>
-      <% end %>
+          <% @train.carriages.ordered(@train.carriage_order).each do |carriage| %>
+            <li><%= link_to carriage.number.to_s, carriage%></li>
+            <% end %>
+        <% end %>
     </p>
   </div>
 </div>
+
+<p>
+  <strong>Кол-во мест:</strong>
+  <%= @train.carriages.sum(:total_seats) %>
+</p>
+
+<p>
+  <strong>Пример запроса конкретных данных чере AR Query Interface:</strong>
+  Количество мест в сидячих вагонах:
+  <%= @train.calculate_seats('CoachCarriage', :seats) %>
+</p>
 
 
 <%= link_to 'Изменить', edit_train_path(@train), class: 'btn btn-warning' %> |

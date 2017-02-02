@@ -10,20 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125163403) do
+ActiveRecord::Schema.define(version: 20170202185927) do
 
   create_table "carriages", force: :cascade do |t|
-    t.string   "number"
-    t.string   "carriage_type"
-    t.integer  "top_places",    default: 0, null: false
-    t.integer  "bottom_places", default: 0, null: false
+    t.integer  "number"
     t.integer  "train_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "side_bottom_seats"
+    t.integer  "seats"
+    t.string   "type"
+    t.integer  "top_seats"
+    t.integer  "bottom_seats"
+    t.integer  "side_top_seats"
+    t.integer  "total_seats"
   end
 
   create_table "railway_stations", force: :cascade do |t|
-    t.string   "title"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170125163403) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
+    t.integer "number"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -59,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170125163403) do
     t.datetime "updated_at",         null: false
     t.integer  "current_station_id"
     t.integer  "route_id"
+    t.boolean  "carriage_order"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end

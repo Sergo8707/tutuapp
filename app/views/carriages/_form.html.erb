@@ -1,32 +1,54 @@
-<%= form_for (@carriage) do |f| %>
-    <%= render 'common/errors', resource: @carriage %>
+<%= form_for (carriage) do |f| %>
+    <%= render 'common/errors', resource: carriage %>
 
     <div class="field text_input">
       <%= f.label :train, 'Выберите поезд:' %>
       <%= f.collection_select :train_id, Train.all, :id, :number %>
     </div>
 
-    <div class="field text_input">
-      <%= f.label :number, 'Номер вагона:' %>
-      <%= f.text_field :number %>
-    </div>
+    <% if carriage.new_record? %>
+        <div class="field text_input">
+          <%= f.label :type, 'Тип вагона' %>
+          <%= f.select :type, Carriage::TYPES %>
+        </div>
+    <% end %>
 
-    <div class="field text_input">
-      <%= f.label :carriage_type, 'Тип вагона:' %>
-      <%= f.select :carriage_type, Carriage::TYPES %>
-    </div>
+    <% if carriage.has_seats?(:top_seats) %>
+        <div class="field text_input">
+          <%= f.label :top_seats, 'Верхних мест' %>
+          <%= f.text_field :top_seats %>
+        </div>
+    <% end %>
 
-    <div class="field text_input">
-      <%= f.label :top_place, 'Количество нижних полок:' %>
-      <%= f.text_field :top_places %>
-    </div>
+    <% if carriage.has_seats?(:bottom_seats) %>
+        <div class="field text_input">
+          <%= f.label :bottom_seats, 'Нижних мест' %>
+          <%= f.text_field :bottom_seats %>
+        </div>
+    <% end %>
 
-    <div class="field text_input">
-      <%= f.label :bottom_place, 'Количество верхних полок:' %>
-      <%= f.text_field :bottom_places %>
-    </div>
+    <% if carriage.has_seats?(:side_top_seats) %>
+        <div class="field text_input">
+          <%= f.label :side_top_seats, 'Боковых верхних мест' %>
+          <%= f.text_field :side_top_seats %>
+        </div>
+    <% end %>
+
+    <% if carriage.has_seats?(:side_bottom_seats) %>
+        <div class="field text_input">
+          <%= f.label :side_bottom_seats, 'Боковых нижних мест' %>
+          <%= f.text_field :side_bottom_seats %>
+        </div>
+    <% end %>
+
+    <% if carriage.has_seats?(:seats) %>
+        <div class="field text_input">
+          <%= f.label :seats, 'Сидячих мест' %>
+          <%= f.text_field :seats %>
+        </div>
+    <% end %>
 
     <div class="actions">
-      <%= f.submit "#{ @carriage.new_record? ? 'Создать' : 'Изменить' }", class: 'btn btn-success' %>
+      <%= f.submit "#{ carriage.new_record? ? 'Создать' : 'Изменить' }", class: 'btn btn-success' %>
     </div>
 <% end %>

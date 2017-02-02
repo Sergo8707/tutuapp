@@ -1,6 +1,8 @@
 <tr>
-  <td><%= carriage.carriage_type %></td>
+  <td><%= carriage.type %></td>
   <td><%= carriage.number %></td>
+  <td><%= carriage.train.present? ? carriage.train.number : 'Не указан' %></td>
+  <td><%= carriage.total_seats %></td>
   <td><%= link_to 'Показать', carriage, class: 'btn-sm btn btn-info' %></td>
   <td><%= link_to 'Изменить', edit_carriage_path(carriage), class: 'btn-sm btn btn-warning' %></td>
   <td><%= link_to 'Удалить', carriage, class: ' btn-sm btn btn-danger', method: :delete, data:

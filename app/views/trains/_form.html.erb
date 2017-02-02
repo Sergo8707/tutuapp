@@ -7,7 +7,12 @@
 
     <div class="field text_input">
       <%= f.label :current_station, 'Текущая станция' %>
-      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :carriage_order, 'Прямой порядок сортировки' %>
+      <%= f.check_box :carriage_order %>
     </div>
 
     <div class="field text_input">

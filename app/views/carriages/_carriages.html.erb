@@ -14,75 +14,43 @@
           <%= carriage.number %>
         </th>
         <td>
-          <%= carriage.carriage_type %>
-        </td>
-        <td>
-          <%= carriage.top_places %>
-        </td>
-        <td>
-          <%= carriage.bottom_places %>
+          <%= carriage.type %>
         </td>
       </tr>
   <% end %>
   </tbody>
-  <tr>
-    <th>Всего плацкартных вагонов</th>
-    <th>Кол-во мест: верхних</th>
-    <th>Кол-во мест: нижних</th>
-  </tr>
-  <tbody>
-  <tr>
-    <th scope="row">
-      <%= carriages.platc.count %>
-    </th>
-    <td>
-      <%= carriages.platc.total(:top_places) %>
-    </td>
-    <td>
-      <%= carriages.platc.total(:bottom_places) %>
-    </td>
-  </tr>
-  </tbody>
-  </tr>
-  </tbody>
-  <tr>
-    <th>Всего купейных вагонов</th>
-    <th>Кол-во мест: верхних</th>
-    <th>Кол-во мест: нижних</th>
-  </tr>
-  <tbody>
-  <tr>
-    <th scope="row">
-      <%= carriages.cupe.count %>
-    </th>
-    <td>
-      <%= carriages.cupe.total(:top_places) %>
-    </td>
-    <td>
-      <%= carriages.cupe.total(:bottom_places) %>
-    </td>
-  </tr>
-  </tbody>
-  </tr>
-  </tbody>
-  <tr>
-    <th>Всего вагонов</th>
-    <th>Всего верхних мест</th>
-    <th>Всего нижних мест</th>
-  </tr>
-  <tbody>
-  <tr>
-    <th scope="row">
-      <%= carriages.count %>
-    </th>
-    <td>
-      <%= carriages.total(:top_places) %>
-    </td>
-    <td>
-      <%= carriages.total(:bottom_places) %>
-    </td>
-  </tr>
-  </tbody>
-  </tr>
-  </tbody>
+  <% if @carriage.has_seats?(:top_seats) %>
+      <p>
+        <strong>Верхних мест:</strong>
+        <%= @carriage.top_seats %>
+      </p>
+  <% end %>
+
+  <% if @carriage.has_seats?(:bottom_seats) %>
+      <p>
+        <strong>Нижних мест:</strong>
+        <%= @carriage.bottom_seats %>
+      </p>
+  <% end %>
+
+  <% if @carriage.has_seats?(:side_top_seats) %>
+      <p>
+        <strong>Боковых верхних мест:</strong>
+        <%= @carriage.side_top_seats %>
+      </p>
+  <% end %>
+
+  <% if @carriage.has_seats?(:side_bottom_seats) %>
+      <p>
+        <strong>Боковых нижних мест:</strong>
+        <%= @carriage.side_bottom_seats %>
+      </p>
+  <% end %>
+
+  <% if @carriage.has_seats?(:seats) %>
+      <p>
+        <strong>Сидячих мест:</strong>
+        <%= @carriage.seats %>
+      </p>
+  <% end %>
 </table>
