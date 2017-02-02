@@ -8,9 +8,10 @@ class Carriage < ApplicationRecord
   before_validation :set_number, on: :create
 
   TYPES = {platc: 'Плацкартный', cupe: 'Купейный'}.freeze
-
-  scope :cupe, -> { where(carriage_type: 'Купейный') }
-  scope :platc, -> { where(carriage_type: 'Плацкартный') }
+  
+  TYPES.values.each do |carriage_type|
+    scope carriage_type, -> { where(carriage_type: 'carriage_type') }
+  end
 
   def self.total(arg)
     sum(arg)

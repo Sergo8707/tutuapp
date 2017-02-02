@@ -4,7 +4,7 @@ class Train < ApplicationRecord
   has_many :carriages
   belongs_to :route, optional: true
 
-  belongs_to :current_station, class_name: 'RailwayStation'
+  belongs_to :current_station_id, class_name: 'RailwayStation'
 
 
   validates :number, presence: true
