@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Текущая станция:</strong>
-  <%= @train.current_station.present? ? @train.current_station.name : 'Станция не назначена' %>
+  <%= @train.current_station_id.present? ? @train.current_station_id.name : 'Станция не назначена' %>
 </p>
 <p>
   <strong>На маршруте:</strong>

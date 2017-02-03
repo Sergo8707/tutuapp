@@ -7,7 +7,7 @@
 
     <div class="field text_input">
       <%= f.label :railway_station_ids, "Станции:" %>
-      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, {multiple: true} %>
+      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :name, {}, {multiple: true} %>
     </div>
 
     <div class="actions">
