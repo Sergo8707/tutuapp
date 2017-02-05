@@ -22,9 +22,7 @@
       <% if @train.carriages.empty? %>
           У поезда нет вагонов
       <% else %>
-          <% @train.carriages.ordered(@train.carriage_order).each do |carriage| %>
-            <li><%= link_to carriage.number.to_s, carriage%></li>
-            <% end %>
+          <%= render 'carriages' %>
         <% end %>
     </p>
   </div>
@@ -32,7 +30,7 @@
 
 <p>
   <strong>Кол-во мест:</strong>
-  <%= @train.carriages.total_seats %>
+  <%= @train.carriages.sum(:total_seats) %>
 </p>
 
 <p>
