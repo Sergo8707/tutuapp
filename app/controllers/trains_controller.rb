@@ -23,13 +23,14 @@ class TrainsController < ApplicationController
   def create
     @train = Train.new(train_params)
 
-    if @train.save
-      redirect_to @train, notice: 'Train was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @train.save
+        format.html { redirect_to @train, notice: 'Train was successfully created.' }
+      else
+        format.html { render :new }
+      end
     end
   end
-
 
   # PATCH/PUT /trains/1
   def update
@@ -52,11 +53,11 @@ class TrainsController < ApplicationController
 
   private
 
-    def set_train
-      @train = Train.find(params[:id])
-    end
+  def set_train
+    @train = Train.find(params[:id])
+  end
 
-    def train_params
-      params.require(:train).permit(:number, :current_station_id, :route_id, :carriage_order)
-    end
+  def train_params
+    params.require(:train).permit(:number, :route_id, :current_station_id, :carriage_order)
+  end
 end
