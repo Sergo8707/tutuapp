@@ -2,11 +2,11 @@ class CarriagesController < ApplicationController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
 
   def index
-    @carriages = type_class.all
+    @carriages = Carriage.all
   end
 
   def new
-    @carriage = type_class.new
+    @carriage = Carriage.new
   end
 
   def show
@@ -16,7 +16,7 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = type_class.new(carriage_params)
+    @carriage = Carriage.new(carriage_params)
 
     if @carriage.save
       redirect_to @carriage
@@ -26,7 +26,6 @@ class CarriagesController < ApplicationController
   end
 
   def update
-    @carriage.calculate_total_seats
     if @carriage.update(carriage_params)
       redirect_to @carriage
     else
@@ -42,19 +41,11 @@ class CarriagesController < ApplicationController
   private
 
   def set_carriage
-    @carriage = type_class.find(params[:id])
-  end
-
-  def type
-    @type ||= Carriage::TYPES.include?(params[:type]) ? params[:type] : 'Carriage'
-  end
-
-  def type_class
-    type.constantize
+    @carriage = Carriage.find(params[:id])
   end
 
   def carriage_params
-    params.require(type.underscore.to_sym).permit(:number, :type, :train_id, :total_seats, :top_seats, :bottom_seats,
+    params.require(:carriage).permit(:number, :type, :train_id, :total_seats, :top_seats, :bottom_seats,
                                                   :side_top_seats, :side_bottom_seats, :seats)
   end
 end

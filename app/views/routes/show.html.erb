@@ -1,29 +1,12 @@
 <p id="notice"><%= notice %></p>
 <p><h2><%= @route.name %></h2></p>
 <p>
-  <% if @route.trains.empty? %>
-      <strong>Поездов на маршруте нет</strong>
-  <% else %>
-      <strong>По маршруту едет:</strong>
-      <% @route.trains.each do |train| %>
-          <li>Поезд № -  <%= train.number %></li>
-      <% end %>
-  <% end %>
-  </p>
+  <br>
+  <%= render 'trains' %>
+  <br>
+  <%= render 'stations' %>
 
-  <p>
-    <strong>Cтанции в маршруте:</strong>
+</p>
 
-    <% if @route.railway_stations.empty? %>
-        Список пуст
-    <% else %>
-      <ul>
-        <% @route.railway_stations.ordered.each do |station| %>
-            <li><%= station.name %></li>
-        <% end %>
-      </ul>
-  <% end %>
-  </p>
-
-  <%= link_to 'Изменить', edit_route_path(@route), class: 'btn btn-warning' %> |
-  <%= link_to 'Назад', routes_path, class: 'btn-sm btn-default' %>
+<%= link_to 'Изменить', edit_route_path(@route), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', routes_path, class: 'btn-sm btn-default' %>

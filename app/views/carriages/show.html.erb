@@ -1,13 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Поезд № </strong>
-  <%= @carriage.train.present? ? @carriage.train.number : 'Поезд не указан' %>
-</p>
-
 <p>
   <strong>Номер вагона:</strong>
-  <%= @carriage.number %>
+  <%= @carriage.number ? @carriage.number : 'не указан' %>
 </p>
 
 <p>
@@ -15,41 +9,13 @@
   <%= @carriage.type %>
 </p>
 <p>
-
-  <% if @carriage.has_seats?(:top_seats) %>
-    <p>
-      <strong>Верхних мест:</strong>
-      <%= @carriage.top_seats %>
-    </p>
-<% end %>
-
-<% if @carriage.has_seats?(:bottom_seats) %>
-    <p>
-      <strong>Нижних мест:</strong>
-      <%= @carriage.bottom_seats %>
-    </p>
-<% end %>
-
-<% if @carriage.has_seats?(:side_top_seats) %>
-    <p>
-      <strong>Боковых верхних мест:</strong>
-      <%= @carriage.side_top_seats %>
-    </p>
-<% end %>
-
-<% if @carriage.has_seats?(:side_bottom_seats) %>
-    <p>
-      <strong>Боковых нижних мест:</strong>
-      <%= @carriage.side_bottom_seats %>
-    </p>
-<% end %>
-
-<% if @carriage.has_seats?(:seats) %>
-    <p>
-      <strong>Сидячих мест:</strong>
-      <%= @carriage.seats %>
-    </p>
-<% end %>
+  <strong>Поезд № </strong>
+  <%= @carriage.train ? @carriage.train.number : 'не указан' %>
+</p>
+<p>
+  <%= render @carriage.type.downcase.to_s %>
+</p>
 
 <%= link_to 'Изменить', edit_carriage_path(@carriage), class: 'btn btn-warning' %> |
 <%= link_to 'Назад', carriages_path, class: 'btn-sm btn-default' %>
+

@@ -1,38 +1,30 @@
 class Carriage < ApplicationRecord
-  require 'abstract_method'
-  abstract_method :calculate_total_seats
 
   belongs_to :train
 
   before_validation :set_number, on: :create
 
-  scope :ordered, -> (order = nil) { order(number: order || :desc) }
+  validates :number, uniqueness: { scope: :train_id }, if: :train?
 
-  TYPES = %w(CupeCarriage PlatcCarriage SeatsCarriage UpholsteredCarriage).freeze
-  SEATS_TYPES = [].freeze
-
-
-  def has_seats?(seats_type)
-    self.class::SEATS_TYPES.include?(seats_type)
-  end
-
-  def calculate_total_seats
-    0
-  end
-
-  def train?
-    self.train.present?
-  end
-
-  def self.total_seats
-    self.pluck(*SEATS_TYPES).flatten.sum
+  def self.inherited(base)
+    super
+    def base.model_name
+      superclass.model_name
+    end
   end
 
   private
 
-  def set_number
-    return unless train? && self.number.nil?
+  def train?
+    !train.nil?
+  end
 
-    self.number = train.carriages.size + 1
+  def set_number
+    if train
+      max_number = Carriage.where(train_id: train.id).maximum(:number) || 0
+      self.number ||= max_number.next
+    else
+      self.number = nil;
+    end
   end
 end

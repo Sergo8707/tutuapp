@@ -1,0 +1,12 @@
+<strong>Cтанции в маршруте:</strong>
+
+<% if @route.railway_stations.empty? %>
+    Список пуст
+<% else %>
+    <ul>
+      <% @route.railway_stations.ordered.each do |station| %>
+          <li><%= station.name %></li>
+      <% end %>
+    </ul>
+<% end %>
+
