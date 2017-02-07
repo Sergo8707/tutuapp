@@ -16,7 +16,7 @@ class Carriage < ApplicationRecord
   private
 
   def train?
-    !train.nil?
+    self.train.present?
   end
 
   def set_number
@@ -24,7 +24,7 @@ class Carriage < ApplicationRecord
       max_number = Carriage.where(train_id: train.id).maximum(:number) || 0
       self.number ||= max_number.next
     else
-      self.number = nil;
+      self.number = nil
     end
   end
 end
