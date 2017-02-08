@@ -1,26 +1,30 @@
 class Carriage < ApplicationRecord
-  belongs_to :train
 
-  validates :number, :carriage_type, :bottom_places, :top_places, presence: true
-  validates :bottom_places, :top_places, inclusion: {in: 1..100}
-  validates :number, inclusion: {in: '1'..'100'}
+  belongs_to :train
 
   before_validation :set_number, on: :create
 
-  TYPES = {platc: 'Плацкартный', cupe: 'Купейный'}.freeze
-  
-  TYPES.values.each do |carriage_type|
-    scope carriage_type, -> { where(carriage_type: 'carriage_type') }
-  end
+  validates :number, uniqueness: { scope: :train_id }, if: :train?
 
-  def self.total(arg)
-    sum(arg)
+  def self.inherited(base)
+    super
+    def base.model_name
+      superclass.model_name
+    end
   end
-
 
   private
 
+  def train?
+    self.train.present?
+  end
+
   def set_number
-    self.number = (train.carriages.maximum('number') || 0).next
+    if train
+      max_number = Carriage.where(train_id: train.id).maximum(:number) || 0
+      self.number ||= max_number.next
+    else
+      self.number = nil
+    end
   end
 end

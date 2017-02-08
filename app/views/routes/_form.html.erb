@@ -1,16 +1,17 @@
-<%= form_for(@route) do |f| %>
-    <%= render 'common/errors', resource: @route %>
+<%= form_for(route) do |f| %>
+    <%= render 'common/errors', resource: route %>
+
     <div class="field text_input">
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
 
     <div class="field text_input">
-      <%= f.label :railway_station_ids, "Станции:" %>
-      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, {multiple: true} %>
+      <%= f.label :railway_station, 'Станции:' %>
+      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :name, {}, {multiple: true} %>
     </div>
 
     <div class="actions">
-      <%= f.submit "#{ @route.new_record? ? 'Создать' : 'Изменить' }", class: 'btn btn-success' %>
+      <%= f.submit "#{ route.new_record? ? 'Создать' : 'Изменить' }", class: 'btn btn-success' %>
     </div>
 <% end %>

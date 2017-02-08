@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    abstract_method (1.2.1)
     actioncable (5.0.1)
       actionpack (= 5.0.1)
       nio4r (~> 1.2)
@@ -168,6 +169,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  abstract_method
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)

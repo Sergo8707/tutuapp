@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem  'abstract_method'
 
 # Для внешнего вида. А то как то грустно
 gem 'twitter-bootstrap-rails'

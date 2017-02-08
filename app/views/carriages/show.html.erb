@@ -1,26 +1,21 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Поезд № </strong>
-  <%= @carriage.train.present? ? @carriage.train.number : 'Поезд не указан' %>
-</p>
-
 <p>
   <strong>Номер вагона:</strong>
-  <%= @carriage.number %>
+  <%= @carriage.number ? @carriage.number : 'не указан' %>
 </p>
 
 <p>
   <strong>Тип вагона:</strong>
-  <%= @carriage.carriage_type %>
+  <%= @carriage.type %>
 </p>
 <p>
-
+  <strong>Поезд № </strong>
+  <%= @carriage.train ? @carriage.train.number : 'не указан' %>
+</p>
 <p>
-  <strong>Количество мест:</strong></br>
-  Верхних: <%= @carriage.top_places %></br>
-  Нижних: <%= @carriage.bottom_places %></br>
+  <%= render @carriage.type.downcase.to_s %>
 </p>
 
 <%= link_to 'Изменить', edit_carriage_path(@carriage), class: 'btn btn-warning' %> |
 <%= link_to 'Назад', carriages_path, class: 'btn-sm btn-default' %>
+

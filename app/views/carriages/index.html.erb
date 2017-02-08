@@ -11,9 +11,7 @@
   </thead>
 
   <tbody>
-  <% @carriages.each do |carriage| %>
-      <%= render 'carriage', carriage: carriage %>
-  <% end %>
+  <%= render 'carriage', carriages: @carriages %>
   </tbody>
 </table>
 

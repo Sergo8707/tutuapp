@@ -5,14 +5,6 @@
   <%= @train.number %>
 </p>
 <p>
-  <strong>На станции:</strong>
-  <% if @train.current_station.present? %>
-      <%= @train.current_station.title %>
-  <% else %>
-      Не указано
-  <% end %>
-</p>
-<p>
   <strong>На маршруте:</strong>
   <% if @train.route.present? %>
       <%= @train.route.name %>
@@ -20,18 +12,20 @@
       Не указано
   <% end %>
 </p>
+<br>
+<strong>Сортировка вагонов с <%= @train.carriage_order ? 'головы' : 'хвоста' %></strong>
+<br>
 <div class="row">
   <div class="col-md-8">
     <p>
       <% if @train.carriages.empty? %>
           У поезда нет вагонов
       <% else %>
-          <%= render 'carriages/carriages', carriages: @train.carriages %>
+          <%= render 'carriages' %>
       <% end %>
     </p>
   </div>
 </div>
-
 
 <%= link_to 'Изменить', edit_train_path(@train), class: 'btn btn-warning' %> |
 <%= link_to 'Назад', trains_path, class: 'btn-sm btn-default' %>

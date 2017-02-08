@@ -1,0 +1,6 @@
+<% @train.carriages.order(number: @train.order_carriages).each do |carriage| %>
+    <div><h2><%= link_to carriage.number.to_s, carriage, class: 'text_input'%>
+      <%= link_to image_tag('carriage.png', :alt => 'train img'), carriage %>
+         </h2>
+    </div>
+<% end %>

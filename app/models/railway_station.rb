@@ -5,6 +5,8 @@ class RailwayStation < ApplicationRecord
   has_many :railway_stations_routes
   has_many :routes, through: :railway_stations_routes
 
-  validates :title, presence: true
+  validates :name, presence: true
+
+  scope :ordered, -> { order('"railway_stations_routes"."order"')}
 
 end
