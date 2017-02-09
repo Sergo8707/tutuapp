@@ -7,7 +7,6 @@ Rails.application.routes.draw do
     patch :update_time, on: :member
   end
   resources :routes
-  resources :carriages
   resource :search, only: [:show, :create]
 
   get 'welcome/index'
