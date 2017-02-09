@@ -57,6 +57,13 @@ class RailwayStationsController < ApplicationController
     redirect_to @route
   end
 
+  def update_time
+    departure_time = "#{params[:time][' departure_time(4i)']}:#{params[:time][' departure_time(5i)']}"
+    arrival_time = "#{params[:time]['arrival_time(4i)']}:#{params[:time]['arrival_time(5i)']}"
+    @railway_station.update_time(@route,  departure_time, arrival_time)
+    redirect_to @route
+  end
+
   private
 
   def set_railway_station
