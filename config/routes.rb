@@ -7,10 +7,12 @@ Rails.application.routes.draw do
     patch :update_time, on: :member
   end
   resources :routes
-  resource :search, only: [:show, :create]
   resources :tickets
+  resources :users
+
+  get 'search', to: 'search#index'
+  get 'result', to: 'search#show'
 
   get 'welcome/index'
-
   root 'welcome#index'
 end

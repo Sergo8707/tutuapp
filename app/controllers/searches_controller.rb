@@ -1,15 +1,14 @@
 class SearchesController < ApplicationController
-  def show
-    @result = Search.find_route_trains(search_params)
+  def index
   end
 
-  def index
-
+  def show
+    @result = Search.find_route_trains(secure_params)
   end
 
   private
 
-  def search_params
+  def secure_params
     params.require(:search).permit(:first_station_id, :last_station_id)
   end
 end

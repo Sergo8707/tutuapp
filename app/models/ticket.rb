@@ -8,4 +8,5 @@ class Ticket < ApplicationRecord
   validates :number, presence: true
   validates :passenger_name, presence: true
   validates :document, presence: true
+  validates :start_station, :end_station, presence: true
 end
