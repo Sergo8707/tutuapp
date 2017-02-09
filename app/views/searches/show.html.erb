@@ -28,7 +28,7 @@
                 <%= hidden_field_tag "ticket[route_id]", route.route_id %>
                 <%= hidden_field_tag "ticket[start_station_id]", route.start_station_id %>
                 <%= hidden_field_tag "ticket[end_station_id]", route.end_station_id %>
-                <td> <%= submit_tag 'Купить' %> </td>
+                <td> <%= submit_tag 'Купить', class: 'btn btn-success' %> </td>
             <% end %>
           </tr>
       <% end %>

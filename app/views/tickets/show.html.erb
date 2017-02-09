@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Номер:</strong>
+  <%= @ticket.number %>
+</p>
+
+<p>
+  <strong>Пользователь:</strong>
+  <%= @ticket.user.name %>
+</p>
+
+<p>
+  <strong>Начальная станция:</strong>
+  <%= @ticket.start_station.present? ? @ticket.start_station.name : 'Начальная станция не назначена' %>
+</p>
+
+<p>
+  <strong>Конечная станция:</strong>
+  <%= @ticket.end_station.present? ? @ticket.end_station.name : 'Конечная станция не назначена' %>
+</p>
+
+<p>
+  <strong>ФИО пассажира:</strong>
+  <%= @ticket.passenger_name %>
+</p>
+
+<p>
+  <strong>Документ пассажира:</strong>
+  <%= @ticket.document %>
+</p>
+
+
+<%= link_to 'Изменить', edit_ticket_path(@ticket), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', tickets_path, class: 'btn-sm btn-default' %>
