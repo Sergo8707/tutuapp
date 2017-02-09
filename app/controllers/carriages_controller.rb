@@ -8,7 +8,7 @@ class CarriagesController < ApplicationController
   end
 
   def new
-    @carriage = Carriage.new
+    @carriage = @train.carriages.new
   end
 
   def show
@@ -18,10 +18,10 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    @carriage = @train.carriages.new(carriage_params)
 
     if @carriage.save
-      redirect_to @carriage
+      redirect_to @train
     else
       render :new
     end
