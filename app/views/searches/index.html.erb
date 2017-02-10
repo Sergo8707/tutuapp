@@ -1,9 +1,9 @@
 <%= form_tag(result_path, method: :get) do %>
-    <p><strong>Станция отправления:</strong></p>
-    <p><%= select_tag "search[first_station_id]", options_from_collection_for_select(RailwayStation.all, :id, :name) %></p>
+    <h4><strong>Станция отправления:</strong></h4>
+    <p class="text_input"><%= select_tag "search[first_station_id]", options_from_collection_for_select(RailwayStation.all, :id, :name) %></p>
 
-    <p><strong>Станция назначения:</strong></p>
-    <p><%= select_tag "search[last_station_id]", options_from_collection_for_select(RailwayStation.all, :id, :name) %></p>
+    <h4><strong>Станция назначения:</strong></h4>
+    <p class="text_input"><%= select_tag "search[last_station_id]", options_from_collection_for_select(RailwayStation.all, :id, :name) %></p>
 
-    <p><%= submit_tag 'Найти' %></p>
+    <p><%= submit_tag 'Найти', class: 'btn btn-success' %></p>
 <% end %>

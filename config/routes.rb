@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :tickets
   resources :users
 
-  get 'search', to: 'search#index'
-  get 'result', to: 'search#show'
+  get 'search', to: 'searches#index'
+  get 'result', to: 'searches#show'
 
   get 'welcome/index'
   root 'welcome#index'

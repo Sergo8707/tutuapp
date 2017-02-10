@@ -9,4 +9,12 @@ class Ticket < ApplicationRecord
   validates :passenger_name, presence: true
   validates :document, presence: true
   validates :start_station, :end_station, presence: true
+
+  class << self
+    def new_number
+      current_max = maximum(:number)
+      current_max ||= 0
+      current_max += 1
+    end
+  end
 end
