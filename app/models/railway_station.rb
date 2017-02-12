@@ -7,6 +7,33 @@ class RailwayStation < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :ordered, -> { order('"railway_stations_routes"."order"')}
+  scope :ordered, -> { order('"railway_stations_routes"."order"') }
 
+  def update_position(route, position)
+    station_route = station_route(route)
+    station_route.update(order: position) if station_route
+  end
+
+  def position_in(route)
+    station_route(route).try(:order)
+  end
+
+  def update_time(route, arrival_time, departure_time)
+    station_route = station_route(route)
+    station_route.update(arrival_time: arrival_time, departure_time: departure_time) if station_route
+  end
+
+  def arrival(route)
+    station_route(route).try(:arrival_time)
+  end
+
+  def departure(route)
+    station_route(route).try(:departure_time)
+  end
+
+  protected
+
+  def station_route(route)
+    @station_route ||= railway_stations_routes.where(route: route).first
+  end
 end

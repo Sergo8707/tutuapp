@@ -60,3 +60,9 @@
     padding: 18px;
     background: #f3f3f3;
 }
+
+.vcenter {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+}

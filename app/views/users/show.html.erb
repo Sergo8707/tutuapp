@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Имя пользователя:</strong>
+    <%= @user.name %>
+  </p>
+
+<%= link_to 'Изменить', edit_user_path(@user), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', users_path, class: 'btn-sm btn-default' %>

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= link_to 'Показать', user, class: 'btn-sm btn btn-info' %></td>
+  <td><%= link_to 'Изменить', edit_user_path(user), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to 'Удалить', user, class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+</tr>
