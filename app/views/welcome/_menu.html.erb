@@ -1,4 +1,4 @@
-<ul class="list-group">
+<ul class="list-group up">
   <p><li class="list"><%= link_to ' Найти билет', search_path, class: 'btn btn-primary fa fa-search' %></li></p>
   <% if user_signed_in? %>
       <% if current_user.admin? %>
@@ -9,9 +9,6 @@
           <% else %>
           <p><li class="list"><%= link_to ' Купленные билеты', tickets_path, class: 'btn btn-primary fa fa-money' %></li></p>
           <% end %>
-      <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-  <% else %>
-      <%= link_to 'Войти', new_user_session_path %>
   <% end %>
 </ul>
 
