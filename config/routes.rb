@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :trains do
     resources :carriages, shallow: true
   end
