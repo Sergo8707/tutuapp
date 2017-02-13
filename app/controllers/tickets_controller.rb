@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, only: :create
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
