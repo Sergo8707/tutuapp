@@ -8,7 +8,7 @@ class CarriagesController < ApplicationController
   end
 
   def new
-    @carriage = @train.carriages.new
+    @carriage = Carriage.new
   end
 
   def show

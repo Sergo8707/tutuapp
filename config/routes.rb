@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :trains do
-    resource :carriages, shallow: true
+    resources :carriages, shallow: true
   end
   resources :railway_stations do
     patch :update_position, on: :member
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :routes
   resources :tickets
   resources :users
+
 
   get 'search', to: 'searches#index'
   get 'result', to: 'searches#show'
