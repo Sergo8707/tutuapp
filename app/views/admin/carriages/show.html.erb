@@ -16,6 +16,6 @@
   <%= render @carriage.type.downcase.to_s %>
 </p>
 
-<%= link_to 'Изменить', edit_carriage_path(@carriage), class: 'btn btn-warning' %> |
-<%= link_to 'Назад', @carriage.train, class: 'btn-sm btn-default' %>
+<%= link_to 'Изменить', edit_admin_carriage_path(@carriage), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', [:admin, @carriage.train], class: 'btn-sm btn-default' %>
 

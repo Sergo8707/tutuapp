@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get 'search', to: 'searches#index'
+  get 'result', to: 'searches#show'
+
   namespace :admin do
+
+    get 'main/index'
+    root 'main#index'
+
     resources :trains do
       resources :carriages, shallow: true
     end
@@ -15,9 +22,6 @@ Rails.application.routes.draw do
   end
 
   resources :tickets, only: [:index, :new, :create, :show, :destroy]
-
-  get 'search', to: 'searches#index'
-  get 'result', to: 'searches#show'
 
   get 'welcome/index'
   root 'welcome#index'

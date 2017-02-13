@@ -2,4 +2,4 @@
 
 <%= render 'form', carriage: @carriage %>
 
-<%= link_to 'Назад', @carriage.train, class: 'btn-sm btn-default' %>
+<%= link_to 'Назад', [:admin, @carriage.train], class: 'btn-sm btn-default' %>

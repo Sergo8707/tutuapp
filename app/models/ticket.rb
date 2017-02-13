@@ -12,7 +12,7 @@ class Ticket < ApplicationRecord
 
   class << self
     def new_number
-      current_max = maximum(:number) || 0
+      current_max = maximum(:number).to_i || 0
       current_max += 1
     end
   end

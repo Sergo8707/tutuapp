@@ -1,4 +1,4 @@
-<%= form_for carriage.new_record? ? [train, carriage] : carriage do |f| %>
+<%= form_for carriage.new_record? ? [:admin, train, carriage] : [:admin, carriage] do |f| %>
     <%= render 'common/errors', resource: carriage %>
 
     <% if carriage %>

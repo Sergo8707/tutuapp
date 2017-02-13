@@ -1,5 +1,4 @@
 class Admin::TicketsController < Admin::BaseController
-  before_action :authenticate_user!, only: :create
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,11 +9,7 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def new
-    @ticket = if params.include?(:ticket)
-                Ticket.new(ticket_params)
-              else
-                Ticket.new
-              end
+    @ticket = current_user.tickets.new(params[:ticket])
   end
 
   def edit

@@ -44,14 +44,6 @@
       <div class="container vcenter">
         <%= link_to 'Tutuapp', root_path, class: 'navbar-brand' %>
         <%= link_to image_tag('train_3.png', :alt => 'train img'), root_path %>
-        <div>
-          <% if user_signed_in?  %>
-              <%= link_to "Войти", destroy_user_session_path, method: :delete %>
-              <p class="text_input">Аккаунт: <%= current_user.email %></p>
-          <% else %>
-              <%= link_to "Войти", new_user_session_path %>
-          <% end %>
-        </div>
       </div>
     </div>
 
@@ -59,6 +51,7 @@
       <div class="row">
         <div class="col-lg-9">
           <%= bootstrap_flash %>
+          <%= render 'common/hello' %>
           <p id="notice" class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
 
