@@ -1,6 +1,8 @@
 <h1>Редактирование билета</h1>
-+
-+<%= render 'form', ticket: @ticket %>
-+
-+<%= link_to 'Показать', [:admin, ticket], class: 'btn btn-info' %> |
-+<%= link_to 'Назад', admin_tickets_path, class: 'btn-sm btn-default' %>
+
+<div class="text_input">
+  <%= render 'form', ticket: @ticket %>
+</div>
+
+<%= link_to 'Показать', [:admin, @ticket], class: 'btn btn-info' %> |
+<%= link_to 'Назад', admin_tickets_path, class: 'btn-sm btn-default' %>
