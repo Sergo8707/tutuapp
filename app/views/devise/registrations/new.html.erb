@@ -10,36 +10,36 @@
       <%= devise_error_messages! %>
           <form>
             <div class="form-group">
-        <%= f.label :email %><br/>
-        <%= f.email_field :email, autofocus: true %>
-            </div>
-            <div class="form-group">
-        <%= f.label :name %><br/>
+        <%= f.label :name, 'Имя' %>
         <%= f.text_field :name %>
             </div>
             <div class="form-group">
-        <%= f.label :lastname %><br/>
+        <%= f.label :lastname, 'Фамилия' %>
         <%= f.text_field :lastname %>
       </div>
             <div class="form-group">
-        <%= f.label :password %>
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true %>
+            </div>
+            <div class="form-group">
+        <%= f.label :password, 'Пароль' %>
         <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <em>минимум <%= @minimum_password_length %> знаков</em>
         <% end %><br/>
         <%= f.password_field :password, autocomplete: "off" %>
             </div>
             <div class="form-group">
-        <%= f.label :password_confirmation %><br/>
+        <%= f.label :password_confirmation, 'Подтверждение пароля' %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
 
             <div class="actions">
+              <div class="rightstr">
+                <button type="submit" class="btn btn-danger fa fa-plug">Зарегистрироваться</button>
+              </div>
               <div class="leftstr">
                 <%= link_to "Войти", new_session_path(resource_name) %><br/>
                 <%= link_to "Забыли пароль?", new_password_path(resource_name) %><br/>
-              </div>
-              <div class="rightstr">
-                <button type="submit" class="btn btn-danger fa fa-plug">Зарегистрироваться</button>
               </div>
             </div>
       <% end %>

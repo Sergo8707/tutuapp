@@ -1,5 +1,5 @@
 <tr>
   <td><%= ticket.number %></td>
-  <td><%= link_to 'Показать', ticket, class: 'btn-sm btn btn-info' %></td>
-  <td><%= link_to 'Удалить', ticket, class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+  <td><%= link_to 'Показать', ticket_path(ticket), class: 'btn-sm btn btn-info' %></td>
+  <td><%= link_to 'Удалить', ticket_path(ticket), class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
 </tr>

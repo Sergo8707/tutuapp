@@ -3,17 +3,11 @@
       <%= render 'common/errors', resource: ticket %>
 
       <div class="field">
-        <%= f.label :number %>
-        <%= f.text_field :number %>
+        <%= f.label :number, 'Билет №' %>
+        <%= f.text_field :number,:readonly => true %>
       </div>
-
       <div class="field">
-        <%= f.label :user, 'Пользователь' %>
-        <%= f.collection_select :user_id, User.all, :id, :name %>
-      </div>
-
-      <div class="field">
-        <%= f.label :train, 'Поезд' %>
+        <%= f.label :train, 'Поезд №' %>
         <%= f.collection_select :train_id, Train.all, :id, :number %>
       </div>
 
