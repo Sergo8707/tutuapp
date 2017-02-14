@@ -13,6 +13,13 @@ class Carriage < ApplicationRecord
     end
   end
 
+  TYPES = %w(CupeCarriage PlatcCarriage SeatsCarriage UpholsteredCarriage).freeze
+  SEATS_TYPES = [].freeze
+
+  def has_seats?(seats_type)
+    self.class::SEATS_TYPES.include?(seats_type)
+  end
+
   private
 
   def train?
