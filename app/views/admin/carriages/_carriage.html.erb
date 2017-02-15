@@ -1,0 +1,8 @@
+<tr>
+  <td><%= carriage.type %></td>
+  <td><%= carriage.number %></td>
+  <td><%= link_to 'Показать', [:admin, carriage], class: 'btn-sm btn btn-info' %></td>
+  <td><%= link_to 'Изменить', edit_admin_carriage_path(carriage), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to 'Удалить', [:admin, carriage], class: ' btn-sm btn btn-danger', method: :delete, data:
+      {confirm: 'Вы уверены?'} %></td>
+</tr>

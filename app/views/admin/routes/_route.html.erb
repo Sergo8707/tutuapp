@@ -1,0 +1,6 @@
+<tr>
+  <td><%= route.name %></td>
+  <td><%= link_to 'Показать',  [:admin, route], class: 'btn-sm btn btn-info' %></td>
+  <td><%= link_to 'Изменить', edit_admin_route_path(route), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to 'Удалить',  [:admin, route], class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+</tr>

@@ -1,0 +1,35 @@
+<strong>Cтанции в маршруте:</strong>
+
+<% if @route.railway_stations.empty? %>
+    Список пуст
+<% else %>
+    <table>
+      <thead>
+      <tr>
+        <td width="100px">Название</td>
+        <td>Позиция</td>
+      </tr>
+      </thead>
+      <tbody class="text_input">
+      <% @route.railway_stations.ordered.each do |station| %>
+          <tr>
+            <td><%= station.name %></td>
+            <td>
+              <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
+                  <%= number_field_tag :position, station.position_in(@route) %>
+                  <%= hidden_field_tag :route_id, @route.id %>
+                  <%= submit_tag 'Изменить' %>
+              <% end %>
+            </td>
+            <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
+                <%= hidden_field_tag :route_id, @route.id %>
+                <td> <%= time_select :arrival_time, :arrival_time, :default => station.arrival(@route) %> </td>
+                <td> <%= time_select :departure_time, :departure_time, :default => station.departure(@route) %> </td>
+                <td> <%= submit_tag 'Обновить время' %> </td>
+            <% end %>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+

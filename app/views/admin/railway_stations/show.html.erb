@@ -1,0 +1,18 @@
+<p>
+  <strong>Title:</strong>
+  <%= @railway_station.name %>
+</p>
+
+<% if @railway_station.routes.empty? %>
+    <p>Станция не входит ни в один маршрут</p>
+<% else %>
+    <p>Станция входит в следующие маршруты:</p>
+    <ul>
+      <% @railway_station.routes.each do |route| %>
+          <li><%= route.name %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= link_to 'Изменить', edit_admin_railway_station_path(@railway_station), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', admin_railway_stations_path, class: 'btn-sm btn-default' %>

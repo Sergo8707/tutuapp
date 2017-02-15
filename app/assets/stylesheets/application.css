@@ -17,6 +17,11 @@
 .backgroundImageCVR{
     position:relative;
     padding:15px;
+
+}
+
+.list-group-item {
+    min-height: 400px;
 }
 .background-image{
     position:absolute;
@@ -65,4 +70,11 @@
     display: inline-block;
     float: none;
     vertical-align: middle;
+}
+
+.mar {
+    margin: 0px;
+}
+.navbar{
+ border-radius: 10px;
 }

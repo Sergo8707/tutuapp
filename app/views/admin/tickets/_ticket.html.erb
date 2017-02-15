@@ -1,0 +1,6 @@
+<tr>
+  <td><%= ticket.number %></td>
+  <td><%= link_to 'Показать', [:admin, ticket], class: 'btn-sm btn btn-info' %></td>
+  <td><%= link_to 'Изменить', edit_admin_ticket_path(ticket), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to 'Удалить', [:admin, ticket], class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+</tr>

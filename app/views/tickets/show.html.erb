@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<h2>БИЛЕТ</h2>
 
 <p>
   <strong>Номер:</strong>
@@ -8,6 +8,11 @@
 <p>
   <strong>Пользователь:</strong>
   <%= @ticket.user.name %>
+</p>
+
+<p>
+  <strong>Поезд №:</strong>
+  <%= @ticket.train.number %>
 </p>
 
 <p>
@@ -29,7 +34,3 @@
   <strong>Документ пассажира:</strong>
   <%= @ticket.document %>
 </p>
-
-
-<%= link_to 'Изменить', edit_ticket_path(@ticket), class: 'btn btn-warning' %> |
-<%= link_to 'Назад', tickets_path, class: 'btn-sm btn-default' %>

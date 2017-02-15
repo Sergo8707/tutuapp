@@ -1,0 +1,6 @@
+<h1>Изменить поезд</h1>
+
+<%= render 'form', train: @train %>
+
+<%= link_to 'Показать', [:admin, @train], class: 'btn btn-info' %>
+<%= link_to 'Назад', admin_trains_path, class: 'btn-sm btn-default' %>

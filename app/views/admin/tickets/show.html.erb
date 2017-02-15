@@ -1,0 +1,33 @@
+<p>
+  <strong>Номер:</strong>
+  <%= @ticket.number %>
+</p>
+
+<p>
+  <strong>Пользователь:</strong>
+  <%= @ticket.user.name %>
+</p>
+
+<p>
+  <strong>Начальная станция:</strong>
+  <%= @ticket.start_station %>
+</p>
+
+<p>
+  <strong>Конечная станция:</strong>
+  <%= @ticket.end_station %>
+</p>
+
+<p>
+  <strong>ФИО пассажира:</strong>
+  <%= @ticket.passenger_name %>
+</p>
+
+<p>
+  <strong>Документ пассажира:</strong>
+  <%= @ticket.document %>
+</p>
+
+
+<%= link_to 'Изменить', edit_admin_ticket_path(@ticket), class: 'btn btn-warning' %> |
+<%= link_to 'Назад', admin_tickets_path, class: 'btn-sm btn-default' %>
