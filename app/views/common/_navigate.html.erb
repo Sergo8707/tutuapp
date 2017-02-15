@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <%= link_to 'Tutuapp', root_path, class: 'navbar-brand' %>
+    <%= link_to image_tag('train_3.png', :alt => 'train img'), root_path %>
+    <ul class="navbar-right mar">
+      <% if user_signed_in? %>
+          <%= link_to ' Выйти', destroy_user_session_path, class: 'btn btn-default navbar-btn fa fa-sign-out', :method => :delete %>
+      <% else %>
+          <%= link_to ' Войти', new_user_session_path, class: 'btn btn-default navbar-btn fa fa-sign-in' %>
+          <%= link_to ' Зарегистрироваться', new_user_registration_path, class: 'btn btn-danger navbar-btn fa fa-plug' %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

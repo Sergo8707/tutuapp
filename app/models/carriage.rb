@@ -6,18 +6,18 @@ class Carriage < ApplicationRecord
 
   validates :number, uniqueness: { scope: :train_id }, if: :train?
 
+  TYPES = %w(CupeCarriage PlatcCarriage SeatsCarriage UpholsteredCarriage).freeze
+  SEATS_TYPES = [].freeze
+
+  def has_seats?(seats_type)
+    SEATS_TYPES.include?(seats_type)
+  end
+
   def self.inherited(base)
     super
     def base.model_name
       superclass.model_name
     end
-  end
-
-  TYPES = %w(CupeCarriage PlatcCarriage SeatsCarriage UpholsteredCarriage).freeze
-  SEATS_TYPES = [].freeze
-
-  def has_seats?(seats_type)
-    self.class::SEATS_TYPES.include?(seats_type)
   end
 
   private

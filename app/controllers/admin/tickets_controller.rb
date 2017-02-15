@@ -9,7 +9,7 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def new
-    @ticket = current_user.tickets.new(params[:ticket])
+    @ticket = Ticket.new(params[:ticket])
   end
 
   def edit

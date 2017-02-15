@@ -10,7 +10,9 @@
   </thead>
 
   <tbody>
-  <%= render 'carriage', carriages: @carriages %>
+  <% carriages.each do |carriage| %>
+      <%= render 'carriage', carriages: @carriages %>
+  <% end %>
   </tbody>
 </table>
 
