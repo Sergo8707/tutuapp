@@ -10,7 +10,10 @@ gem 'jbuilder', '~> 2.5'
 gem  'abstract_method'
 
 gem 'devise'
+gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
+gem 'devise-i18n'
+gem 'russian'
 
 group :development, :test do
   gem 'byebug', platform: :mri
