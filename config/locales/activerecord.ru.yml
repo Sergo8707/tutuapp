@@ -14,6 +14,8 @@ ru:
       ticket:
         passenger_name: 'ФИО - пассажира'
         document: 'Документ - пассажира'
+      train:
+        number: 'Номер'
     errors:
       messages:
         blank: 'не заполнен'
