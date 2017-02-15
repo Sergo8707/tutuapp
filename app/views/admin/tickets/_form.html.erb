@@ -8,7 +8,7 @@
 
     <div class="field">
       <%= f.label :user, 'Пользователь' %>
-      <%= f.collection_select :user_id, User.all, :id, :name %>
+      <%= f.collection_select :user_id, User.all, :id, :first_name %>
     </div>
 
     <div class="field">

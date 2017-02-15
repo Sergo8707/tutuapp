@@ -1,32 +1,17 @@
 <div class="row">
-
-
-
   <%= form_tag(result_path, method: :get) do %>
-
-
       <div class="col-md-4">
-        <h5><strong>Станция отправления:</strong></h5>
+        <h5><strong><%= t('search.station_from') %>:</strong></h5>
         <%= select_tag "search[first_station_id]", options_from_collection_for_select(@stations, :id, :name), class: 'form-control' %>
       </div>
-
-
-
       <div class="col-md-4">
-        <h5><strong>Станция назначения:</strong></h5>
+        <h5><strong><%= t('search.station_to') %>:</strong></h5>
         <%= select_tag "search[last_station_id]", options_from_collection_for_select(@stations, :id, :name), class: 'form-control' %>
-
       </div>
-
-
       <div class="col-md-4">
         <br>
         <br>
-        <%= submit_tag 'Найти', class: 'btn btn-success' %>
-
+        <%= submit_tag t('search.submit'), class: 'btn btn-success' %>
       </div>
   <% end %>
-
-
-
 </div>

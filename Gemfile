@@ -15,6 +15,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-i18n'
 gem 'russian'
 
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'

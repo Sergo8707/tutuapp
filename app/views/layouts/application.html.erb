@@ -20,12 +20,11 @@
   <div class="background-image"></div>
   <%= render 'common/navigate' %>
   <div class="content">
+    <%= bootstrap_flash %>
+    <p class="alert"><%= alert %></p>
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= render 'common/hello' %>
-          <p class="alert"><%= alert %></p>
           <%= yield %>
         </div>
         <div class="col-lg-3">

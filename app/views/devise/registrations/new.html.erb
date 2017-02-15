@@ -1,45 +1,47 @@
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-8">
     <div class="panel panel-info">
       <div class="panel-heading text-center">
         <h2><strong>Регистрация</strong></h2>
       </div>
     </div>
     <div class="jumbotron well text_input">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
           <form>
             <div class="form-group">
-        <%= f.label :name, 'Имя' %>
-        <%= f.text_field :name %>
+              <%= f.label :first_name, 'Имя' %>
+              <%= f.text_field :first_name, class: 'form-control', placeholder: "First Name" %>
             </div>
             <div class="form-group">
-        <%= f.label :lastname, 'Фамилия' %>
-        <%= f.text_field :lastname %>
-      </div>
-            <div class="form-group">
-              <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true %>
+              <%= f.label :last_name, 'Фамилия' %>
+              <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
             </div>
             <div class="form-group">
-        <%= f.label :password, 'Пароль' %>
-        <% if @minimum_password_length %>
-            <em>минимум <%= @minimum_password_length %> знаков</em>
-        <% end %><br/>
-        <%= f.password_field :password, autocomplete: "off" %>
+              <%= f.label :email, 'Email' %>
+              <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email" %>
             </div>
             <div class="form-group">
-        <%= f.label :password_confirmation, 'Подтверждение пароля' %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+              <%= f.label :password, 'Пароль' %>
+              <% if @minimum_password_length %>
+                  <em>минимум <%= @minimum_password_length %> знаков</em>
+              <% end %><br/>
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :password_confirmation, 'Подтверждение пароля' %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Password Confirmation" %>
+            </div>
+            <div class="row">
+              <div class="container">
+                <div class="col-md-5">
+                  <%= link_to "Войти", new_session_path(resource_name) %><br/>
+                  <%= link_to "Забыли пароль?", new_password_path(resource_name) %><br/>
+                </div>
 
-            <div class="actions">
-              <div class="rightstr">
-                <button type="submit" class="btn btn-danger fa fa-plug">Зарегистрироваться</button>
-              </div>
-              <div class="leftstr">
-                <%= link_to "Войти", new_session_path(resource_name) %><br/>
-                <%= link_to "Забыли пароль?", new_password_path(resource_name) %><br/>
+                <div class="col-md-3 text-right">
+                  <button type="submit" class="btn btn-lg btn-success fa fa-plug"> Зарегистрироваться</button>
+                </div>
               </div>
             </div>
       <% end %>
