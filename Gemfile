@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
@@ -15,6 +16,7 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'devise-i18n'
 gem 'russian'
+gem 'rails_12factor'
 
 
 group :development, :test do
@@ -23,7 +25,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'rails_12factor'
   gem 'uglifier', '>= 1.3.0'
 end
 
