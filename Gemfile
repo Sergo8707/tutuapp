@@ -17,6 +17,7 @@ gem 'twitter-bootstrap-rails'
 gem 'devise-i18n'
 gem 'russian'
 gem 'rails_12factor'
+gem 'postmark-rails', '>0.10.0'
 
 
 group :development, :test do
