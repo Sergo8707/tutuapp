@@ -33,7 +33,7 @@ class Admin::TrainsController < Admin::BaseController
   # PATCH/PUT /trains/1
   def update
       if @train.update(train_params)
-        redirect_to [:admin, @train], notice: 'Train was successfully updated.'
+        redirect_to [:admin, @train]
       else
         render :edit
       end
@@ -42,7 +42,7 @@ class Admin::TrainsController < Admin::BaseController
   # DELETE /trains/1
   def destroy
     @train.destroy
-      redirect_to admin_trains_url, notice: 'Train was successfully destroyed.'
+      redirect_to admin_trains_url
   end
 
   private
