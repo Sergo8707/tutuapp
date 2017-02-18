@@ -2,7 +2,7 @@
     <%= render 'common/errors', resource: carriage %>
 
     <div class="field text_input">
-      <%= f.label :type, 'Тип вагона' %>
+      <%= f.label 'Тип вагона' %>
       <%= f.select :type, Carriage::TYPES %>
     </div>
 
