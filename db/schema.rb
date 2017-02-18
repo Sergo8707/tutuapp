@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218152043) do
+ActiveRecord::Schema.define(version: 20170218170142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20170218152043) do
     t.integer "route_id"
     t.integer "number"
     t.integer "order"
-    t.time    "arrival_time",       default: '2000-01-01 15:07:16'
-    t.time    "departure_time",     default: '2000-01-01 15:07:16'
+    t.time    "arrival_time",       default: '2000-01-01 16:48:35'
+    t.time    "departure_time",     default: '2000-01-01 16:48:35'
     t.index ["railway_station_id"], name: "index_railway_stations_routes_on_railway_station_id", using: :btree
     t.index ["route_id"], name: "index_railway_stations_routes_on_route_id", using: :btree
   end
@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170218152043) do
     t.string   "number"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "user_id",          null: false
-    t.integer  "train_id",         null: false
+    t.integer  "user_id"
+    t.integer  "train_id"
     t.string   "passenger_name"
     t.string   "document"
     t.integer  "start_station_id", null: false
