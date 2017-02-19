@@ -10,8 +10,8 @@ class Ticket < ApplicationRecord
   validates :document, presence: true
   validates :start_station, :end_station, presence: true
 
-  after_create :send_notification
-  before_destroy :send_ticket_delete
+  after_create :send_email
+  after_destroy :after_destroy_send_cancel_email
 
   def route_name
     "#{start_station.name} - #{end_station.name}"
@@ -26,11 +26,11 @@ class Ticket < ApplicationRecord
 
   private
 
-  def send_notification
+  def send_email
     TicketsMailer.buy_ticket(self.user, self).deliver_now
   end
 
-  def send_ticket_delete
+  def after_destroy_send_cancel_email
     TicketsMailer.delete_ticket(self.user, self).deliver_now
   end
 end
