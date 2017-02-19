@@ -10,12 +10,12 @@
 
 <p>
   <strong>Начальная станция:</strong>
-  <%= @ticket.start_station %>
+  <%= @ticket.start_station.present? ? @ticket.start_station.name : 'Начальная станция не назначена' %>
 </p>
 
 <p>
   <strong>Конечная станция:</strong>
-  <%= @ticket.end_station %>
+  <%= @ticket.end_station.present? ? @ticket.end_station.name : 'Конечная станция не назначена' %>
 </p>
 
 <p>

@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
@@ -14,15 +16,16 @@ gem 'therubyracer'
 gem 'twitter-bootstrap-rails'
 gem 'devise-i18n'
 gem 'russian'
+gem 'rails_12factor'
+gem 'sendgrid-ruby'
 
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'sqlite3'
+
 end
 
 group :production do
-  gem 'pg', '~>0.19.0'
   gem 'uglifier', '>= 1.3.0'
 end
 
