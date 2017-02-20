@@ -23,26 +23,26 @@ class Admin::TrainsController < Admin::BaseController
   def create
     @train = Train.new(train_params)
 
-      if @train.save
-        redirect_to [:admin, @train]
-      else
-        render :new
-      end
+    if @train.save
+      redirect_to [:admin, @train]
+    else
+      render :new
+    end
   end
 
   # PATCH/PUT /trains/1
   def update
-      if @train.update(train_params)
-        redirect_to [:admin, @train]
-      else
-        render :edit
-      end
+    if @train.update(train_params)
+      redirect_to admin_trains_path, notice: t('controllers.trains.updated')
+    else
+      render :edit
+    end
   end
 
   # DELETE /trains/1
   def destroy
     @train.destroy
-      redirect_to admin_trains_url
+    redirect_to admin_trains_url
   end
 
   private
