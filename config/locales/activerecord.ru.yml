@@ -31,4 +31,6 @@ ru:
   controllers:
     railway_stations:
       updated: 'Вы обновили станцию'
+    routes:
+      updated: 'Вы успешно обновили маршрут'
 
