@@ -1,6 +1,11 @@
 <tr>
-  <td><%= railway_station.name %></td>
+  <td>
+    <div id="railway_station_title_<%= railway_station.id %>">
+      <h4><%= railway_station.name %></h4>
+    </div>
+    <%= render 'form', railway_station: railway_station, hidden: true%>
+  </td>
   <td><%= link_to 'Показать', [:admin, railway_station], class: 'btn-sm btn btn-info' %></td>
-  <td><%= link_to 'Изменить', edit_admin_railway_station_path(railway_station), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to 'Изменить', '', class: 'btn-sm btn btn-warning edit_station', data: {station_id: railway_station.id} %></td>
   <td><%= link_to 'Удалить', [:admin, railway_station], class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: 'Вы уверены?'} %></td>
 </tr>

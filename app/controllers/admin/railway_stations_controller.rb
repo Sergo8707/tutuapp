@@ -33,7 +33,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   # PATCH/PUT /railway_stations/1
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to [:admin, @railway_station]
+      redirect_to admin_railway_station_path, notice: I18n.t('controllers.railway_stations.updated')
     else
       render :edit
     end

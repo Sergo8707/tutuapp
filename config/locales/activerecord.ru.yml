@@ -7,7 +7,7 @@ ru:
       ticket: 'Билет'
     attributes:
       railway_station:
-        name: 'Наименование'
+        name: 'Название'
       route:
         name: 'Наименование'
         railway_station_ids: 'Станции'
@@ -28,3 +28,11 @@ ru:
           attributes:
             name:
               blank: 'должно быть указано'
+  controllers:
+    railway_stations:
+      updated: 'Вы обновили станцию'
+    routes:
+      updated: 'Вы успешно обновили маршрут'
+    trains:
+      updated: 'Вы успешно обновили поезд'
+

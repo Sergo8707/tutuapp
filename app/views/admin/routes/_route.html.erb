@@ -1,6 +1,11 @@
 <tr>
-  <td><%= route.name %></td>
+  <td>
+    <div id="route_name_<%= route.id %>">
+      <h4><%= route.name %></h4>
+    </div>
+    <%= render 'inline_form', route: route, hidden: true %>
+  </td>
   <td><%= link_to t('common.show'), [:admin, route], class: 'btn-sm btn btn-info' %></td>
-  <td><%= link_to t('common.edit'), edit_admin_route_path(route), class: 'btn-sm btn btn-warning' %></td>
+  <td><%= link_to t('common.edit'), '', class: 'btn-sm btn btn-warning edit_route', data: {route_id: route.id} %></td>
   <td><%= link_to t('common.delete'), [:admin, route], class: 'btn-sm btn btn-danger', method: :delete, data: {confirm: t('common.shure_question')} %></td>
 </tr>

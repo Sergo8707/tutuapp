@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_tag(result_path, method: :get) do %>
+  <%= form_tag(result_path, method: :get, class: 'search_form') do %>
       <div class="col-md-4">
         <h5><strong><%= t('search.station_from') %>:</strong></h5>
         <%= select_tag "search[first_station_id]", options_from_collection_for_select(@stations, :id, :name), class: 'form-control' %>
@@ -11,7 +11,7 @@
       <div class="col-md-4">
         <br>
         <br>
-        <%= submit_tag t('search.submit'), class: 'btn btn-success' %>
+        <%= submit_tag t('search.submit'), class: 'btn btn-success find' %>
       </div>
   <% end %>
 </div>
