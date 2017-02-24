@@ -6,8 +6,7 @@ class TicketsController < ApplicationController
     @tickets = current_user.tickets
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @ticket = if params.include?(:ticket)
@@ -46,5 +45,4 @@ class TicketsController < ApplicationController
                                    :passenger_name,
                                    :document)
   end
-
 end

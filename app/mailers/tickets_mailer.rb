@@ -10,6 +10,4 @@ class TicketsMailer < ApplicationMailer
     @ticket = ticket
     mail(to: user.email, subject: 'Вы удалили билет')
   end
-
-
 end

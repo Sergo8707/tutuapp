@@ -1,7 +1,6 @@
 class Admin::CarriagesController < Admin::BaseController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
-  before_action :set_train, only:[:new, :create]
-
+  before_action :set_train, only: [:new, :create]
 
   def index
     @carriages = Carriage.all
@@ -11,11 +10,9 @@ class Admin::CarriagesController < Admin::BaseController
     @carriage = Carriage.new
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @carriage = @train.carriages.new(carriage_params)
@@ -52,6 +49,6 @@ class Admin::CarriagesController < Admin::BaseController
 
   def carriage_params
     params.require(:carriage).permit(:number, :type, :train_id, :total_seats, :top_seats, :bottom_seats,
-                                                  :side_top_seats, :side_bottom_seats, :seats)
+                                     :side_top_seats, :side_bottom_seats, :seats)
   end
 end

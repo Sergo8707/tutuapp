@@ -1,5 +1,4 @@
 class Carriage < ApplicationRecord
-
   belongs_to :train
 
   before_validation :set_number, on: :create
@@ -23,7 +22,7 @@ class Carriage < ApplicationRecord
   private
 
   def train?
-    self.train.present?
+    train.present?
   end
 
   def set_number

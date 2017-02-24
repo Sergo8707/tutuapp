@@ -1,25 +1,18 @@
 class Admin::RailwayStationsController < Admin::BaseController
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position, :update_time]
 
-  # GET /railway_stations
   def index
     @railway_stations = RailwayStation.all
   end
 
-  # GET /railway_stations/1
-  def show
-  end
+  def show; end
 
-  # GET /railway_stations/new
   def new
     @railway_station = RailwayStation.new
   end
 
-  # GET /railway_stations/1/edit
-  def edit
-  end
+  def edit; end
 
-  # POST /railway_stations
   def create
     @railway_station = RailwayStation.new(railway_station_params)
 
@@ -30,7 +23,6 @@ class Admin::RailwayStationsController < Admin::BaseController
     end
   end
 
-  # PATCH/PUT /railway_stations/1
   def update
     if @railway_station.update(railway_station_params)
       redirect_to admin_railway_station_path, notice: I18n.t('controllers.railway_stations.updated')
@@ -39,7 +31,6 @@ class Admin::RailwayStationsController < Admin::BaseController
     end
   end
 
-  # DELETE /railway_stations/1
   def destroy
     @railway_station.destroy
     redirect_to admin_railway_stations_url

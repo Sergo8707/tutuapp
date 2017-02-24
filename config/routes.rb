@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'result', to: 'searches#show'
 
   namespace :admin do
-
     get 'main/index'
     root 'main#index'
 

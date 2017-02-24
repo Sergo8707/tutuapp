@@ -5,8 +5,7 @@ class Admin::RoutesController < Admin::BaseController
     @routes = Route.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @route = Route.new
@@ -20,11 +19,9 @@ class Admin::RoutesController < Admin::BaseController
     else
       render :new
     end
-
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @route.update(route_params)
@@ -38,8 +35,6 @@ class Admin::RoutesController < Admin::BaseController
     @route.destroy
     redirect_to admin_routes_url
   end
-
-
 
   private
 

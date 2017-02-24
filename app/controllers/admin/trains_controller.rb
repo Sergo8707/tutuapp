@@ -7,8 +7,7 @@ class Admin::TrainsController < Admin::BaseController
   end
 
   # GET /trains/1
-  def show
-  end
+  def show; end
 
   # GET /trains/new
   def new
@@ -16,8 +15,7 @@ class Admin::TrainsController < Admin::BaseController
   end
 
   # GET /trains/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /trains
   def create

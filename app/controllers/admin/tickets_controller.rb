@@ -5,15 +5,13 @@ class Admin::TicketsController < Admin::BaseController
     @tickets = Ticket.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @ticket = Ticket.new(params[:ticket])
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @ticket = Ticket.new(ticket_params)
@@ -57,5 +55,4 @@ class Admin::TicketsController < Admin::BaseController
                                    :passenger_name,
                                    :document)
   end
-
 end

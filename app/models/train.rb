@@ -1,5 +1,4 @@
 class Train < ApplicationRecord
-
   has_many :tickets
   has_many :carriages
   belongs_to :route, optional: true
@@ -15,6 +14,4 @@ class Train < ApplicationRecord
   def count_seats_by_type(carriage_type, seats_type)
     carriages.where(type: carriage_type).sum(seats_type)
   end
-
-
 end

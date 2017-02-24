@@ -1,5 +1,4 @@
 class Route < ApplicationRecord
-
   has_many :trains
   has_many :railway_stations_routes
   has_many :railway_stations, through: :railway_stations_routes
@@ -21,5 +20,4 @@ class Route < ApplicationRecord
       errors.add(:base, I18n.t('route.station_counts_error')) if railway_stations.size < 2
     end
   end
-
 end

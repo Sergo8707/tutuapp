@@ -1,5 +1,4 @@
 class Ticket < ApplicationRecord
-
   belongs_to :train
   belongs_to :user
   belongs_to :start_station, class_name: 'RailwayStation'
@@ -27,10 +26,10 @@ class Ticket < ApplicationRecord
   private
 
   def send_email
-    TicketsMailer.buy_ticket(self.user, self).deliver_now
+    TicketsMailer.buy_ticket(user, self).deliver_now
   end
 
   def after_destroy_send_cancel_email
-    TicketsMailer.delete_ticket(self.user, self).deliver_now
+    TicketsMailer.delete_ticket(user, self).deliver_now
   end
 end

@@ -1,5 +1,4 @@
 class RailwayStation < ApplicationRecord
-
   has_many :trains, foreign_key: :current_station_id
 
   has_many :railway_stations_routes
@@ -7,7 +6,7 @@ class RailwayStation < ApplicationRecord
 
   validates :name, presence: true
 
-  scope :ordered, -> { select('railway_stations.*, railway_stations_routes.order').joins(:railway_stations_routes).order("railway_stations_routes.order").uniq }
+  scope :ordered, -> { select('railway_stations.*, railway_stations_routes.order').joins(:railway_stations_routes).order('railway_stations_routes.order').uniq }
 
   def update_position(route, position)
     station_route = station_route(route)
